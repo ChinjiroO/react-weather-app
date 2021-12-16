@@ -40,8 +40,8 @@ function Forecast() {
         <h4>Daily Forecast</h4>
         <div>
           <ul>
-            {mockDaily.map((daily) => (
-              <li>
+            {mockDaily.map((daily, index) => (
+              <li key={index}>
                 <div>
                   <span>{daily.date}</span>
                   <img src={daily.icon} alt="weather icons" />
