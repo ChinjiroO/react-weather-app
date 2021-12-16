@@ -1,0 +1,42 @@
+.cards {
+  background-color: rgba(var(--primary-color), 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 3rem 1.5rem 3rem;
+  width: 100%;
+  max-width: 800px;
+  border-radius: 15px;
+  margin-top: 1rem;
+}
+.tempurature {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.tempurature .units {
+  display: flex;
+  align-items: center;
+}
+.tempurature .text {
+  justify-content: center;
+  text-justify: center;
+}
+.tempurature .feelsLike {
+  color: rgba(var(--primary-text-color), 0.5);
+  text-align: start;
+}
+.city {
+  display: flex;
+  flex-direction: column;
+  color: rgba(var(--primary-text-color), 0.7);
+  text-align: end;
+  justify-self: center;
+}
+.city .title {
+  color: rgba(var(--primary-text-color), 0.7);
+}
+.city .dateTime {
+  color: rgba(var(--primary-text-color), 0.5);
+}

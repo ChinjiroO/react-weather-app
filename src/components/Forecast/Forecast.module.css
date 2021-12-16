@@ -1,0 +1,46 @@
+.container {
+  flex-direction: column;
+  display: flex;
+  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 800px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.hourly {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+.daily {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+.daily ul {
+  padding-left: 0;
+}
+
+@media (min-width: 768px) {
+  .container {
+    display: flex;
+    margin-top: 1.5rem;
+    width: 100%;
+    max-width: 800px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .hourly {
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+  }
+  .daily {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+  }
+}
