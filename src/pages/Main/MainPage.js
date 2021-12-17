@@ -6,13 +6,24 @@ import {
 import styles from "./MainPage.module.css";
 
 const MainPage = () => {
-  const [data, setData] = useState();
+  const apiKey = "699f100baf9c29a74c5b7e4a654ac114";
+  const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [lat, setLat] = useState(null);
+  const [lon, setLon] = useState(null);
+
+  // Get current position
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((res) => {
+      setLat(res.coords.latitude);
+      setLon(res.coords.longitude);
+    });
+  }, []);
 
   // Fetch Openweathermap
   useEffect(() => {
     fetch(
-      "http://api.openweathermap.org/data/2.5/onecall?lat=15&lon=102.1667&units=metric&appid=699f100baf9c29a74c5b7e4a654ac114"
+      `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`
     )
       .then((res) => {
         if (res.ok) {
@@ -24,12 +35,12 @@ const MainPage = () => {
         setData(data);
       })
       .catch((error) => {
-        console.error(error);
+        console.log(error);
       })
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, [lat, lon]);
 
   // Set Loading...
   if (loading) {
@@ -43,11 +54,10 @@ const MainPage = () => {
       <h1>Weather forecast</h1>
       {/* Card */}
       <CurrentWeathers
-        temp={loading === false ? data.current.temp : "..."}
-        feelsLike={loading === false ? data.current.feels_like : "..."}
-        weather={
-          loading === false ? data.current.weather[0].description : "..."
-        }
+        temp={data !== null ? data.current.temp : "..."}
+        feelsLike={data !== null ? data.current.feels_like : "..."}
+        weather={data !== null ? data.current.weather[0].description : "..."}
+        dt={data !== null ? Date(data.current.dt.toLocaleString()) : "..."}
       />
       <Forecasts />
     </div>
