@@ -26,8 +26,8 @@ const mockDaily = [
 ];
 
 function Forecast() {
-  const [active, setActive] = useState("HourlyForecast");
-  console.log(active);
+  // const [active, setActive] = useState("HourlyForecast");
+  // console.log(active);
 
   return (
     <div className={styles.container}>
