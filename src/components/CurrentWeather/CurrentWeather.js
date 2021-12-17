@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./CurrentWeather.module.css";
 
-function CurrentWeather() {
+function CurrentWeather(props) {
   let [lat, setLat] = useState("");
   let [lon, setLon] = useState("");
   let [currentWeather, setCurrentWeather] = useState(null);
@@ -32,10 +32,10 @@ function CurrentWeather() {
                 src="http://openweathermap.org/img/wn/02d@2x.png"
                 alt="weather icons"
               />
-              <h1 className={styles.text}>30ºC</h1>
+              <h1 className={styles.text}>{props.temp}ºC</h1>
             </div>
             <p className={styles.feelsLike}>
-              Feels like 26 ºC. Overcast clouds.
+              Feels like {props.feelsLike} ºC. {props.weather}.
             </p>
           </div>
         </div>
