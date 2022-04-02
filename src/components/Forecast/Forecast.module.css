@@ -2,6 +2,7 @@
   flex-direction: column;
   display: flex;
   margin-top: 1.5rem;
+  padding-bottom: 1.5rem;
   width: 100%;
   max-width: 800px;
   justify-content: flex-start;
@@ -17,9 +18,47 @@
   display: flex;
   flex-direction: column;
   text-align: start;
+  gap: 0.5em;
 }
 .daily ul {
   padding-left: 10px;
+}
+.daily h6,
+.daily p {
+  margin-bottom: 0;
+}
+.weatherIcon {
+  width: 50px;
+  height: 50px;
+}
+.dailyItems {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.dailyItems .dailyRight {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+  align-items: center;
+}
+.dailyMiddle {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.desc {
+  max-width: none;
+  font-size: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+@media (max-width: 375px) {
+  .desc {
+    max-width: 70px;
+  }
 }
 
 @media (min-width: 768px) {

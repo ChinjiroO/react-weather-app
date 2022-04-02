@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styles from "./CurrentWeather.module.css";
 
 function CurrentWeather(props) {
@@ -10,7 +10,7 @@ function CurrentWeather(props) {
           <div className={styles.tempurature}>
             <div className={styles.units}>
               <img
-                src="http://openweathermap.org/img/wn/02d@2x.png"
+                src={`http://openweathermap.org/img/wn/${props.icon}@2x.png`}
                 alt="weather icons"
               />
               <h1 className={styles.text}>{props.temp}ºC</h1>
