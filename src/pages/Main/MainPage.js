@@ -6,10 +6,10 @@ const MainPage = () => {
   const apiKey = "699f100baf9c29a74c5b7e4a654ac114";
   const [data, setData] = useState(null);
   const [daily, setDaily] = useState([]);
+  const [hourly, setHourly] = useState([]);
   const [loading, setLoading] = useState(true);
   const [lat, setLat] = useState(null);
   const [lon, setLon] = useState(null);
-  console.log(data);
 
   // Get current position
   useEffect(() => {
@@ -33,6 +33,7 @@ const MainPage = () => {
         .then((data) => {
           setData(data);
           setDaily(data.daily);
+          setHourly(data.hourly);
         })
         .catch((error) => {
           console.log(error);
@@ -66,7 +67,7 @@ const MainPage = () => {
         })}
         icon={data?.current.weather[0].icon}
       />
-      <Forecast daily={daily} />
+      <Forecast daily={daily} hourly={hourly} />
     </div>
   );
 };

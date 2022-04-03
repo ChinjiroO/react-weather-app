@@ -1,8 +1,10 @@
 import React from "react";
 import styles from "./Forecast.module.css";
+import Hourly from "./Hourly";
 
 function Forecast(props) {
   const daily = props.daily;
+  const hourly = props.hourly;
   const options = {
     weekday: "short",
     month: "short",
@@ -14,6 +16,7 @@ function Forecast(props) {
       {/* Hourly Forecast*/}
       <div className={styles.hourly}>
         <h4>Hourly Forecast</h4>
+        <Hourly hourly={hourly} />
       </div>
       {/* Daily Forecast*/}
       <div className={styles.daily}>
