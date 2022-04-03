@@ -17,7 +17,6 @@ function Hourly(props) {
     dt: new Date(h.dt * 1000).toLocaleTimeString("en-US", options),
     temp: h.temp,
   }));
-  console.log(hr);
 
   return (
     <div className={styles.container}>

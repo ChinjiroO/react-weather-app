@@ -3,7 +3,6 @@ import { CurrentWeather, Forecast } from "../../components";
 import styles from "./MainPage.module.css";
 
 const MainPage = () => {
-  const apiKey = "699f100baf9c29a74c5b7e4a654ac114";
   const [data, setData] = useState(null);
   const [daily, setDaily] = useState([]);
   const [hourly, setHourly] = useState([]);
@@ -23,7 +22,7 @@ const MainPage = () => {
   useEffect(() => {
     if (lat && lon) {
       fetch(
-        `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`
+        `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
       )
         .then((res) => {
           if (res.ok) {
